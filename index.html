@@ -48,6 +48,30 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 
+        <script>
+    $(document).ready(function(){
+        // Initialize Isotope
+        var $grid = $('.items-wrapper').isotope({
+            // options
+            itemSelector: '.item',
+            layoutMode: 'fitRows'
+        });
+
+        // Filter items on button click
+        $('#filters').on('click', 'li', function(){
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+            $('#filters li').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        // Ensure Isotope layout is properly done after all images are loaded
+        $grid.imagesLoaded().progress(function(){
+            $grid.isotope('layout');
+        });
+    });
+</script>
+
 </head>
 
 <body>
@@ -1364,30 +1388,6 @@
 
     <!-- Style Switcher  -->
     <script src="assets/js/demo/style-switcher.js"></script>
-    <script>
-    $(document).ready(function(){
-        // Initialize Isotope
-        var $grid = $('.items-wrapper').isotope({
-            // options
-            itemSelector: '.item',
-            layoutMode: 'fitRows'
-        });
-
-        // Filter items on button click
-        $('#filters').on('click', 'li', function(){
-            var filterValue = $(this).attr('data-filter');
-            $grid.isotope({ filter: filterValue });
-            $('#filters li').removeClass('active');
-            $(this).addClass('active');
-        });
-
-        // Ensure Isotope layout is properly done after all images are loaded
-        $grid.imagesLoaded().progress(function(){
-            $grid.isotope('layout');
-        });
-    });
-</script>
-
 
 </body>
 
