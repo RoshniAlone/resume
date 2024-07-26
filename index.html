@@ -48,30 +48,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 
-        <script>
-    $(document).ready(function(){
-        // Initialize Isotope
-        var $grid = $('.items-wrapper').isotope({
-            // options
-            itemSelector: '.item',
-            layoutMode: 'fitRows'
-        });
-
-        // Filter items on button click
-        $('#filters').on('click', 'li', function(){
-            var filterValue = $(this).attr('data-filter');
-            $grid.isotope({ filter: filterValue });
-            $('#filters li').removeClass('active');
-            $(this).addClass('active');
-        });
-
-        // Ensure Isotope layout is properly done after all images are loaded
-        $grid.imagesLoaded().progress(function(){
-            $grid.isotope('layout');
-        });
-    });
-</script>
-
 </head>
 
 <body>
@@ -540,7 +516,7 @@
             <ul id="filters" class="filters clearfix">
                 <!--<li class="type active" data-filter="*">All</li>-->
 
-                <li class="type active" data-filter=".Coursera">Coursera</li>
+                <li class="type active" data-filter=".google">Coursera</li>
                 <li class="type" data-filter=".Google">Google</li>
                 <li class="type" data-filter=".Microsoft">Microsoft</li>
                 <li class="type" data-filter=".LinkedIn">LinkedIn</li>
@@ -551,7 +527,7 @@
 
                 <!--//GOOGLE-->
                 <!--//item-->
-                <div class="item Coursera col-lg-3 col-6">
+                <div class="item google Programming col-lg-3 col-6">
                     <div class="item-inner">
                         <figure class="figure">
                             <a href="assets/images/portfolio/cer/Coursera/Introduction to Python.png" target="_blank">
